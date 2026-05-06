@@ -47,6 +47,118 @@ body {
 }
 
 /* ============================================
+   PALM TREE BACKGROUND PATTERN
+   ============================================ */
+.palm-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.palm-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.palm-emoji {
+  position: absolute;
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* ============================================
+   PHOTO GALLERY
+   ============================================ */
+.gallery {
+  background: var(--white);
+  padding: 5rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.gallery-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-hero img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(44, 24, 16, 0.15);
+  border: 6px solid white;
+  outline: 1px solid rgba(0,0,0,0.06);
+}
+
+.gallery-hero-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--sunset-orange);
+  margin-top: 1rem;
+}
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.polaroid {
+  background: white;
+  padding: 0.6rem 0.6rem 2.5rem;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 15px rgba(44, 24, 16, 0.1),
+    0 1px 3px rgba(0,0,0,0.08);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 220px;
+  width: 100%;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 12px 35px rgba(232, 87, 42, 0.2);
+  z-index: 2;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+.polaroid-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.85rem;
+  color: var(--dark-soft);
+  text-align: center;
+  margin-top: 0.6rem;
+  padding: 0 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .polaroid {
+    max-width: 180px;
+    padding: 0.4rem 0.4rem 2rem;
+  }
+}
+
+/* ============================================
    NAVIGATION
    ============================================ */
 .nav {
@@ -1177,6 +1289,7 @@ body {
     <ul class="nav-links" id="nav-links">
       <li><a href="#welcome">Welcome</a></li>
       <li><a href="#legends">Legends</a></li>
+      <li><a href="#gallery">Photos</a></li>
       <li><a href="#itinerary">Itinerary</a></li>
       <li><a href="#packing">Outfits</a></li>
       <li><a href="#music">Music</a></li>
@@ -1234,7 +1347,7 @@ body {
 </section>
 
 <!-- Welcome Section -->
-<section class="welcome" id="welcome">
+<section class="welcome palm-bg" id="welcome">
   <div class="welcome-inner reveal">
     <div class="section-header">
       <div class="section-label">Welcome to the Fiesta</div>
@@ -1265,7 +1378,7 @@ body {
 </section>
 
 <!-- Legends of Tenerife 1.0 -->
-<section class="legends section" id="legends">
+<section class="legends section palm-bg" id="legends">
   <div class="section-header reveal">
     <div class="section-label">Flashback</div>
     <h2 class="section-title">Legends of Tenerife 1.0</h2>
@@ -1306,8 +1419,55 @@ body {
   </div>
 </section>
 
+<!-- Photo Gallery -->
+<section class="gallery palm-bg" id="gallery">
+  <div class="gallery-inner">
+    <div class="section-header reveal">
+      <div class="section-label">The Evidence</div>
+      <h2 class="section-title">Tenerife 1.0 &mdash; The Photos</h2>
+      <p class="section-subtitle">Proof that it happened. No amount of denial can erase these.</p>
+    </div>
+
+    <div class="gallery-hero reveal">
+      <img src="Images/unnamed.jpg" alt="Tenerife 2010 written in the sand">
+      <div class="gallery-hero-caption">Where it all began</div>
+    </div>
+
+    <div class="polaroid-grid">
+      <div class="polaroid reveal" style="--rot: -3deg;">
+        <img src="Images/unnamed (1).jpg" alt="Siam Park">
+        <div class="polaroid-caption">Water park vibes</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: 2deg;">
+        <img src="Images/unnamed (2).jpg" alt="Beach at night">
+        <div class="polaroid-caption">Beach nights</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: -2deg;">
+        <img src="Images/unnamed (3).jpg" alt="Night out">
+        <div class="polaroid-caption">Bucket-sized cocktails</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: 4deg;">
+        <img src="Images/unnamed (4).jpg" alt="Night out dancing">
+        <div class="polaroid-caption">Main character energy</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: -1deg;">
+        <img src="Images/unnamed (5).jpg" alt="Beach day">
+        <div class="polaroid-caption">Sandy situations</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: 3deg;">
+        <img src="Images/unnamed (6).jpg" alt="Beach life">
+        <div class="polaroid-caption">Living our best lives</div>
+      </div>
+      <div class="polaroid reveal" style="--rot: -4deg;">
+        <img src="Images/unnamed (7).jpg" alt="Beach fun">
+        <div class="polaroid-caption">The aftermath</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Itinerary Section -->
-<section class="itinerary" id="itinerary">
+<section class="itinerary palm-bg" id="itinerary">
   <div class="itinerary-inner">
     <div class="section-header reveal">
       <div class="section-label">The Plan</div>
@@ -1515,7 +1675,7 @@ body {
 </section>
 
 <!-- Outfits / Packing Section -->
-<section class="packing" id="packing">
+<section class="packing palm-bg" id="packing">
   <div class="packing-inner">
     <div class="section-header reveal">
       <div class="section-label">What to Wear</div>
@@ -1651,7 +1811,7 @@ body {
 </section>
 
 <!-- Music Section -->
-<section class="music" id="music">
+<section class="music palm-bg" id="music">
   <div class="music-inner">
     <div class="section-header reveal">
       <div class="section-label">The Soundtrack</div>
@@ -1745,7 +1905,7 @@ body {
 </section>
 
 <!-- Fiesta Rules -->
-<section class="rules" id="rules">
+<section class="rules palm-bg" id="rules">
   <div class="rules-inner">
     <div class="section-header reveal">
       <div class="section-label">Read Carefully</div>
@@ -1787,7 +1947,7 @@ body {
 </section>
 
 <!-- Guest List -->
-<section class="guests" id="guests">
+<section class="guests palm-bg" id="guests">
   <div class="guests-inner">
     <div class="section-header reveal">
       <div class="section-label">The Crew</div>
@@ -1822,7 +1982,7 @@ body {
 </section>
 
 <!-- Logistics Section -->
-<section class="logistics" id="logistics">
+<section class="logistics palm-bg" id="logistics">
   <div class="logistics-inner">
     <div class="section-header reveal">
       <div class="section-label">Need to Know</div>
@@ -2076,6 +2236,39 @@ body {
 
   // Fire confetti after a short delay
   setTimeout(launchConfetti, 1500);
+
+  // ---- Palm Tree Background ----
+  function populatePalms() {
+    const sections = document.querySelectorAll('.palm-bg');
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const w = section.offsetWidth;
+      const h = section.offsetHeight;
+      const spacing = 180;
+      const cols = Math.ceil(w / spacing);
+      const rows = Math.ceil(h / spacing);
+      const count = cols * rows;
+
+      for (let i = 0; i < count; i++) {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const palm = document.createElement('span');
+        palm.className = 'palm-emoji';
+        palm.textContent = '\u{1F334}';
+        palm.style.left = (col * spacing + (Math.random() * 80 - 40)) + 'px';
+        palm.style.top = (row * spacing + (Math.random() * 80 - 40)) + 'px';
+        palm.style.fontSize = (28 + Math.random() * 24) + 'px';
+        palm.style.transform = 'rotate(' + (Math.random() * 30 - 15) + 'deg)';
+        section.appendChild(palm);
+      }
+    });
+  }
+
+  populatePalms();
+  window.addEventListener('resize', function() {
+    document.querySelectorAll('.palm-emoji').forEach(p => p.remove());
+    populatePalms();
+  });
 
 })();
 </script>
