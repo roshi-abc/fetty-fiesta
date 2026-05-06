@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fetty Trusha's Final Fiesta — Itinerary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 1.5cm 2cm;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #2C1810;
+    background: white;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #E8572A;
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #E8572A, #E91E8E, #F4A300);
+  }
+
+  .header-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: #E91E8E;
+    margin-bottom: 0.25rem;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #2C1810;
+  }
+
+  .header-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #5A4035;
+    font-weight: 400;
+  }
+
+  /* Day Block */
+  .day {
+    margin-bottom: 1.5rem;
+    page-break-inside: avoid;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: white;
+    background: linear-gradient(135deg, #E8572A, #E91E8E);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .day-title .day-date {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .event {
+    display: flex;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f0ebe6;
+  }
+
+  .event:last-child {
+    border-bottom: none;
+  }
+
+  .event-time {
+    min-width: 70px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #E8572A;
+    padding-top: 0.15rem;
+    text-align: right;
+  }
+
+  .event-info {
+    flex: 1;
+  }
+
+  .event-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #2C1810;
+  }
+
+  .event-desc {
+    font-size: 0.75rem;
+    color: #5A4035;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-top: 0.1rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 100px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+
+  .badge-all {
+    background: #e6f5f5;
+    color: #0E7C7B;
+  }
+
+  .badge-core {
+    background: #fce4f2;
+    color: #E91E8E;
+  }
+
+  /* Outfit Summary */
+  .outfits {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, #E8572A, #E91E8E, #F4A300) 1;
+    page-break-inside: avoid;
+  }
+
+  .outfits-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #2C1810;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .outfit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+    font-size: 0.75rem;
+  }
+
+  .outfit-day {
+    margin-bottom: 0.5rem;
+  }
+
+  .outfit-day-name {
+    font-weight: 600;
+    color: #E8572A;
+    margin-bottom: 0.15rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .outfit-day p {
+    color: #5A4035;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .outfit-day strong {
+    color: #2C1810;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .print-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f0ebe6;
+    font-size: 0.7rem;
+    color: #999;
+  }
+
+  .print-footer span {
+    font-family: 'Dancing Script', cursive;
+    color: #E91E8E;
+    font-size: 0.9rem;
+  }
+
+  /* Print-specific */
+  @media print {
+    body {
+      padding: 0;
+      max-width: none;
+    }
+
+    .no-print {
+      display: none;
+    }
+  }
+
+  /* Print button (hidden in print) */
+  .print-btn {
+    display: block;
+    margin: 0 auto 2rem;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #E8572A, #E91E8E);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(232, 87, 42, 0.3);
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-subtitle">Tenerife 2.0</div>
+  <h1 class="header-title">Fetty Trusha's Final Fiesta</h1>
+  <div class="header-details">
+    <span>&#128197; 21 &ndash; 24 May 2026</span>
+    <span>&#128205; Peppard Common, Henley</span>
+    <span>&#127881; 3 Nights</span>
+  </div>
+</div>
+
+<!-- Thursday -->
+<div class="day">
+  <div class="day-title">
+    <span>&#127796; Thursday &mdash; Arrival Day</span>
+    <span class="day-date">21 May</span>
+  </div>
+
+  <div class="event">
+    <div class="event-time">3:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Check-In &amp; Setup <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Advance party arrives to set up decor. Wine chilled, snacks ready.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">5:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Guest of Honour Arrives</div>
+      <div class="event-desc">Diren delivers Trusha from Harrow. Archie, Riten &amp; families arrive in the evening.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">6:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Gift Boxes &amp; Pizza Night <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Uber Eats pizza &amp; Majestic wines. No cooking tonight.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">Evening</div>
+    <div class="event-info">
+      <div class="event-name">Pyjama Party &amp; Game Night <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">PJs on, games out. The fiesta officially begins.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Friday -->
+<div class="day">
+  <div class="day-title">
+    <span>&#127863; Friday &mdash; The Big Day Out</span>
+    <span class="day-date">22 May</span>
+  </div>
+
+  <div class="event">
+    <div class="event-time">1:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Cheesy Grape Wine Tasting <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Wine tasting experience booked by Pri.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">~3:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Henley Boating <span class="badge badge-core">Core Group</span></div>
+      <div class="event-desc">Classic Henley boat ride. BYO drinks &amp; snacks.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">8:30 PM</div>
+    <div class="event-info">
+      <div class="event-name">Playlist Live Reading <span class="badge badge-core">Core Group</span></div>
+      <div class="event-desc">Prosecco with sparklers pre-ordered. ~15 min drive from house.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">11:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">The Cocktail Club <span class="badge badge-core">Core Group</span></div>
+      <div class="event-desc">For those keeping the night going. Table booked.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Saturday -->
+<div class="day">
+  <div class="day-title">
+    <span>&#127946; Saturday &mdash; Pool Party &amp; Feast</span>
+    <span class="day-date">23 May</span>
+  </div>
+
+  <div class="event">
+    <div class="event-time">1:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Pool Party <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Tenerife-themed. Summer 2010 anthems. Mojitos &amp; Hugo cocktails.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">7:00 PM</div>
+    <div class="event-info">
+      <div class="event-name">Private Chef Dinner <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Chef at the house. Get changed into something summery and enjoy.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">Evening</div>
+    <div class="event-info">
+      <div class="event-name">After-Dinner Drinks</div>
+      <div class="event-desc">More cocktails, more music, more memories.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Sunday -->
+<div class="day">
+  <div class="day-title">
+    <span>&#127804; Sunday &mdash; Wind Down</span>
+    <span class="day-date">24 May</span>
+  </div>
+
+  <div class="event">
+    <div class="event-time">Morning</div>
+    <div class="event-info">
+      <div class="event-name">Spa Morning <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">Face masks, smoothies, and some well-earned R&amp;R.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">Late AM</div>
+    <div class="event-info">
+      <div class="event-name">Brunch at the House <span class="badge badge-all">Everyone</span></div>
+      <div class="event-desc">A proper send-off brunch together.</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">11:00 AM</div>
+    <div class="event-info">
+      <div class="event-name">Check-Out &amp; Departure</div>
+      <div class="event-desc">Hugs, maybe some tears, and "we need to do this again" promises.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Outfit Summary -->
+<div class="outfits">
+  <div class="outfits-title">Outfit Guide</div>
+  <div class="outfit-grid">
+    <div class="outfit-day">
+      <div class="outfit-day-name">Thursday</div>
+      <p><strong>Trusha:</strong> Casual, then PJs<br>
+      <strong>Everyone:</strong> Casual, then PJs</p>
+    </div>
+    <div class="outfit-day">
+      <div class="outfit-day-name">Friday</div>
+      <p><strong>Trusha:</strong> White summery (day), white cocktail (eve)<br>
+      <strong>Everyone:</strong> Summery (day), black cocktail (eve)</p>
+    </div>
+    <div class="outfit-day">
+      <div class="outfit-day-name">Saturday</div>
+      <p><strong>Trusha:</strong> White bikini + cover-up, summery dinner dress<br>
+      <strong>Everyone:</strong> Any swimwear, summery outfit for dinner</p>
+    </div>
+    <div class="outfit-day">
+      <div class="outfit-day-name">Sunday</div>
+      <p><strong>Trusha:</strong> Casual going-home outfit<br>
+      <strong>Everyone:</strong> Casual going-home outfit</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="print-footer">
+  <span>Vamos!</span><br>
+  Chiltern Road, Peppard Common, Henley-on-Thames RG9 5HX
+</div>
+
+</body>
+</html>
